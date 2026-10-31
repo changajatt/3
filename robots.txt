@@ -1,0 +1,5 @@
+# NOTE: crawlers only read robots.txt at the DOMAIN ROOT. On a GitHub Pages project site
+# (https://changajatt.github.io/2/) this file is not honoured. It becomes effective if the site moves to its own domain.
+User-agent: *
+Allow: /
+Sitemap: https://changajatt.github.io/2/sitemap.xml

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact and support | Zyvtron</title>
+<meta name="robots" content="noindex, follow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1020'/%3E%3Cpath d='M9 9h14L9 23h14' fill='none' stroke='%2300d4c0' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="doc-hdr"><div class="wrap"><a class="brand" href="index.html"><span class="mark" aria-hidden="true">Z</span>Zyvtron</a><a href="index.html">Back to the ebook page</a></div></header>
+<main class="doc wrap narrow" id="main">
+  <h1>Contact and support</h1>
+  <div class="holding" id="noContact" hidden><p style="margin:0">Support contact details have not been published yet.</p></div>
+  <section id="contactBody" hidden>
+    <p>Email us at <strong id="mail"></strong>. We read every message.</p>
+    <h2>To help us help you faster, include</h2>
+    <ul><li>Your <strong>order reference</strong> (shown on your order page and in your purchase email).</li><li>The email address you used at checkout.</li><li>A short description of what went wrong.</li></ul>
+    <h2>Common questions</h2>
+    <ul><li><strong>Did not get your download email?</strong> Check spam, then <a href="recover.html">request a new link</a>.</li><li><strong>Payment pending?</strong> Some payment methods take time. Your link is sent once payment is confirmed.</li><li><strong>Refunds:</strong> see the <a href="refunds.html">Refund Policy</a>. <strong>Delivery:</strong> see the <a href="delivery.html">Delivery Policy</a>.</li></ul>
+    <p class="meta">Please never send card numbers or passwords by email: we never need them.</p>
+  </section>
+</main>
+<script src="site-config.js"></script>
+<script src="common.js"></script>
+<script>(function(){var s=ZY.support();if(!s){ZY.$("noContact").hidden=false;return;}var a=document.createElement("a");a.href="mailto:"+s;a.textContent=s;ZY.$("mail").appendChild(a);ZY.$("contactBody").hidden=false;})();</script>
+</body>
+</html>
