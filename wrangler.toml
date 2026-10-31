@@ -1,0 +1,35 @@
+# Cloudflare Worker configuration. PUBLIC values only. Secrets are added with `wrangler secret put NAME` (see ../SETUP.md).
+name = "zyvtron-api"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+[vars]
+ENVIRONMENT = "production"
+SITE_URL = "https://changajatt.github.io/2"      # public site URL (no trailing slash). Change for a custom domain.
+SITE_ORIGIN = "https://changajatt.github.io"     # the only browser origin allowed to call this API
+API_URL = ""                                      # SET after first deploy: https://zyvtron-api.<your-subdomain>.workers.dev
+PAYMENT_PROVIDER = ""                             # "lemonsqueezy" | "paddle" | "stripe". "" keeps checkout disabled
+PAYMENT_MODE = "test"                             # "test" until you finish a successful test purchase, then "live"
+PRICE_CENTS = "2700"                              # $27.00. Single source of truth for the displayed and charged price
+CURRENCY = "USD"
+PDF_KEY = "AI-Marketing-Freelancer-System.pdf"    # object name inside the private R2 bucket
+DOWNLOAD_HOURS = "72"
+MAX_DOWNLOADS = "5"
+EMAIL_FROM = ""                                   # e.g. "Zyvtron <orders@yourdomain>" (domain verified with your email provider)
+SUPPORT_EMAIL = ""                                # your real support inbox (also used as reply-to)
+# Provider IDs (public identifiers, not secrets). Fill only the ones for your provider:
+LEMONSQUEEZY_STORE_ID = ""
+LEMONSQUEEZY_VARIANT_ID = ""
+PADDLE_PRICE_ID = ""
+
+[[durable_objects.bindings]]
+name = "LEDGER"
+class_name = "Ledger"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Ledger"]
+
+[[r2_buckets]]
+binding = "DOWNLOADS"
+bucket_name = "zyvtron-private"                   # PRIVATE bucket: never enable public access
